@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VEXA — a private, local-first productivity app for tasks, focus sessions and time awareness." />
+    <meta name="theme-color" content="#754B4D" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>VEXA — Own Your Time</title>
+    <script>
+      // Apply the saved theme before the app loads to avoid a light/dark flash.
+      (function () {
+        var theme = 'system';
+        try {
+          var saved = JSON.parse(localStorage.getItem('vexa-data') || 'null');
+          if (saved && saved.settings && saved.settings.theme) theme = saved.settings.theme;
+        } catch (e) {
+          /* unreadable data is handled by the app on startup */
+        }
+        if (theme === 'system') theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-CDJbbxV1.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B1id2Q8p.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>VEXA needs JavaScript enabled to run.</noscript>
+  </body>
+</html>
