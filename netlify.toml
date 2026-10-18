@@ -1,0 +1,13 @@
+# Optional: lets the same repo deploy on Netlify too.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# VEXA uses hash URLs (/#/tasks), so this is only a safety net.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
